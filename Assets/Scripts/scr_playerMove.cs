@@ -17,6 +17,8 @@ public class scr_playerMove : MonoBehaviour
     public GameObject firePointL;
     public GameObject activeFirePoint;
     public GameObject equippedSpell;
+    public GameObject spellA;
+    public GameObject spellB;
     public GameObject currentAttack;
 
     public bool embiggenActive;
@@ -54,6 +56,11 @@ public class scr_playerMove : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Y)) { Debug.Log(Input.GetAxisRaw("Vertical")); }
         if (Input.GetKeyDown(KeyCode.X)) { Debug.Log(Input.GetAxisRaw("Horizontal")); }
+        if (Input.GetKeyDown(KeyCode.K)) 
+        {
+            if (equippedSpell == spellA) { equippedSpell = spellB; }
+            else if (equippedSpell == spellB) { equippedSpell = spellA; }
+        }
         if (Input.GetKeyDown(KeyCode.J)) { Attack(equippedSpell); }
 
         if (currentAttack != null) { mSpd = 0f; }
